@@ -44,20 +44,18 @@ const checkin3 = document.querySelector("#book3 .checkin")
 
 checkin1.style.color = "black";
 status1.style.color = STATUS_MAP.overdue.color
-reserve1 === STATUS_MAP.reserved.canReserve ? 'enabled' : 'disabled'
-checkout1 === STATUS_MAP.checkedOut.canCheckout ? 'enabled' : 'disabled'
-checkin1 === STATUS_MAP.checkedOut.canCheckIn ? 'enabled' : 'disabled'
-
-console.log(reserve1)
+STATUS_MAP.overdue.canReserve == true ? reserve1.enabled = false : reserve1.disabled = true
+STATUS_MAP.overdue.canCheckout == true ? checkout1.enabled = false : checkout1.disabled = true
+STATUS_MAP.overdue.canCheckIn == true ? checkin1.enabled = true : checkin1.disabled = false
 
 checkin2.style.color = "black";
 status2.style.color = STATUS_MAP.reserved.color
-reserve2 === STATUS_MAP.reserved.canReserve ? 'enabled' : 'disabled'
-checkout2 === STATUS_MAP.checkedOut.canCheckout ? 'enabled' : 'disabled'
-checkin2 === STATUS_MAP.checkedOut.canCheckIn ? 'enabled' : 'disabled'
+STATUS_MAP.reserved.canReserve == true ? reserve2.enabled = false : reserve2.disabled = true
+STATUS_MAP.reserved.canCheckout == true ? checkout2.enabled = true : checkout2.disabled = false
+STATUS_MAP.reserved.canCheckIn == true ? checkin2.enabled = false : checkin2.disabled = true
 
 checkin3.style.color = "black";
 status3.style.color = STATUS_MAP.shelf.color
-reserve3 === STATUS_MAP.reserved.canReserve ? 'enabled' : 'disabled'
-checkout3 === STATUS_MAP.checkedOut.canCheckout ? 'enabled' : 'disabled'
-checkin3 === STATUS_MAP.checkedOut.canCheckIn ? 'enabled' : 'disabled'
+STATUS_MAP.shelf.canReserve == true ? reserve3.enabled = true : reserve3.disabled = false
+STATUS_MAP.shelf.canCheckout == true ? checkout3.enabled = true : checkout3.disabled = false
+STATUS_MAP.shelf.canCheckIn == true ? checkin3.enabled = false : checkin3.disabled = true
